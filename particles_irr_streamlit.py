@@ -155,7 +155,7 @@ fig = px.histogram(
     marginal="box",
     title="Particle Size by Type and Product Line"
 )
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, width="stretch")
 
 fig = px.box(
     filtered,
@@ -165,7 +165,7 @@ fig = px.box(
     points="outliers",
     title="Particle Metric by Station and Product Line"
 )
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, width="stretch")
 
 fig = px.box(
     filtered,
@@ -174,7 +174,7 @@ fig = px.box(
     color="station",
     title="Operator Comparison within Stations"
 )
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, width="stretch")
 
 shift_summary = (
     filtered.groupby(["station","shift"], as_index=False)["particle_metric"]
@@ -188,7 +188,7 @@ fig = px.line(
     markers=True,
     title="Average Particle Metric by Shift"
 )
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, width="stretch")
 
 fig = px.scatter(
     filtered,
@@ -202,7 +202,7 @@ fig = px.scatter(
     ],
     title="Particle Metric vs IRR"
 )
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, width="stretch")
 
 # ------------------------
 # 3. Statistical conclusions
@@ -213,7 +213,7 @@ st.dataframe(
     column_config={
         "p_value": st.column_config.NumberColumn(format="%.2e")
     },
-    use_container_width=True,
+    width="stretch",
     hide_index=True
 )
 
@@ -223,7 +223,7 @@ st.dataframe(
     column_config={
         "p_value": st.column_config.NumberColumn(format="%.2e")
     },
-    use_container_width=True,
+    width="stretch",
     hide_index=True
 )
 
@@ -244,7 +244,7 @@ with tab_where:
     )
     st.dataframe(
         where_risk.sort_values("particle_metric", ascending=False),
-        use_container_width=True,
+        width="stretch",
         hide_index=True
     )
 
@@ -256,7 +256,7 @@ with tab_having:
     )
     st.dataframe(
         hotspots,
-        use_container_width=True,
+        width="stretch",
         hide_index=True
     )
 
@@ -272,7 +272,7 @@ with tab_lag:
     )
     st.dataframe(
         lag_lead[lag_lead["station"] == selected_station].head(100),
-        use_container_width=True,
+        width="stretch",
         hide_index=True
     )
 
@@ -283,7 +283,7 @@ st.header("6. Database analytical tables")
 st.subheader("Station summary")
 st.dataframe(
     station_summary.sort_values("avg_particle_metric", ascending=False),
-    use_container_width=True,
+    width="stretch",
     hide_index=True
 )
 

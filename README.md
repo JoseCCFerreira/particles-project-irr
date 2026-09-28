@@ -22,10 +22,6 @@ The Streamlit dashboard lets users filter the sample-level data and inspect part
 
 ## Screenshots
 
-**Interactive dashboard**
-
-![Streamlit dashboard showing particle metrics, process filters, and analysis charts](screenshots/dashboard.png)
-
 **Notebook analysis**
 
 ![Rendered Jupyter notebook showing the investigation and analytical results](screenshots/notebook.png)
@@ -69,4 +65,4 @@ These are observational data. Statistical significance and adjusted regression i
 - `particles_irr_analysis.db` — SQLite analytical database.
 - `particles_irr_streamlit.py` — interactive dashboard.
 - `requirements.txt` — Python dependencies.
-- `screenshots/` — dashboard and notebook captures used above.
+- `screenshots/` — the notebook capture used above.
